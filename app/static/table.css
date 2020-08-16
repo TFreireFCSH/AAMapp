@@ -1,0 +1,124 @@
+/* Configuração das tabelas */
+.table-data table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table-data th {
+  padding: 10px 5px;
+  font-size: 0.9em;
+  border-collapse: collapse;
+  background-color: var(--main-background-color);
+  text-align: center;
+}
+
+.table-data tr:nth-child(2) {
+  border-top: 1px dotted grey;
+}
+
+.table-data td {
+  padding: 7px 7px;
+  font-size: 0.8em;
+  line-height: 1.5;
+}
+
+.table-data tr:nth-child(even) {
+  background-color: #f7f7f7;
+}
+
+.table-data tr:nth-child(odd) {
+  background-color: white;
+}
+.table-data tr:hover {
+  background-color: #e3e3e3;
+}
+
+td.table-data-first, td.table-data-last {
+  text-align: center;
+}
+
+#table-fundos td:nth-last-child(2) {
+  text-align: left;
+  width:40%;
+}
+#table-fundos td:nth-last-child(3) {
+  text-align: left;
+  width:20%;
+}
+
+#table-fundos td:nth-child(2) {
+  text-align: left;
+}
+
+#table-chancelas td:nth-last-child(2) {
+  text-align: left;
+  width:30%;
+}
+#table-chancelas td:nth-child(2) {
+  text-align: left;
+  width:30%;
+}
+
+#table-periodicos td:nth-child(1) {
+  width:130px;
+}
+
+#table-periodicos td:nth-child(2) {
+  text-align: left;
+  width:40%;
+}
+
+#table-periodicos td:nth-child(3) {
+  text-align: left;
+  width:10%;
+}
+#table-periodicos td:nth-child(4) {
+  text-align: left;
+  width:10%;
+}
+
+#table-periodicos td:nth-child(5) {
+  text-align: left;
+  width:10%;
+}
+
+#table-partituras td:nth-child(1) {
+  width: 135px;
+}
+
+#table-partituras td:nth-child(2) {
+  width: 200px;
+}
+
+#table-partituras td:nth-child(3) {
+  width: 200px;
+}
+
+#table-partituras td:nth-child(4) {
+  width: 500px;
+}
+
+#table-partituras td:nth-last-child(2), #table-partituras td:nth-last-child(3) {
+  width: 150px;
+}
+
+.image-cell {
+  width: 70px;
+  height: 120px;
+}
+
+.image-cell img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid transparent;
+  box-shadow:0px 0px 2px 1px var(--main-header-color);
+  width: 95%;
+}
+
+.image-cell img:hover {
+  width:90%;
+  border: 5px solid transparent;
+  box-shadow:0px 0px 5px 2px var(--main-header-color);
+}

@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/form-setup.css">
+
+<form class="form-partituras" method="POST">
+  {{ form.csrf_token }}
+
+  <div class="form-sec-one">
+    <h3>{{ form.FundoSig.label }}</h3> {{ form.FundoSig(class_="form-field big") }}
+    <h3>{{ form.Suporte.label }}</h3> {{ form.Suporte(class_="form-field big") }}
+    <h3>{{ form.PresArquivo.label }}</h3>{{ form.PresArquivo(class_="form-field small") }}{{ form.Local(class_="form-field small") }}
+  </div>
+
+  <div class="form-sec-two">
+    <h3>{{ form.Autor_1.label }}</h3> {{ form.Autor_1(class_="form-field big") }} {{ form.CPRP(class_="form-field small") }}
+    <h3>{{ form.Autor_2.label }}</h3> {{ form.Autor_2(class_="form-field big") }} {{ form.Atr2Fun(class_="form-field small") }}
+    <h3>{{ form.Autor_3.label }}</h3> {{ form.Autor_3(class_="form-field big") }} {{ form.Atr3Fun(class_="form-field small") }}
+  </div>
+
+  <div class="form-sec-three">
+    <h3>{{ form.Titulo_1.label }}</h3>{{ form.Titulo_1(class_="form-field xbig") }}
+    <h3>{{ form.Titulo_2.label }}</h3>{{ form.Titulo_2(class_="form-field xbig") }}
+    <h3>Edição</h3>{{ form.Edicao_1(class_="form-field medium") }}{{ form.Edicao_2(class_="form-field medium") }}
+  </div>
+
+  <div class="form-sec-four">
+    <h3>{{ form.Data_1.label }}</h3>{{ form.Data_1(class_="form-field small") }}
+    <h3>{{ form.Data_2.label }}</h3>{{ form.Data_2(class_="form-field small") }}
+    <h3>{{ form.Periodo.label }}</h3>{{ form.Periodo(class_="form-field small") }}
+  </div>
+
+
+  <div class="form-sec-txtarea">
+    <div class="form-text">
+      <h3>{{ form.Instrum.label }}</h3> <br>{{ form.Instrum }}
+    </div>
+
+    <div class="form-text">
+      <h3>{{ form.DescFisica.label }}</h3> <br>{{ form.DescFisica }}
+    </div>
+    
+    <div class="form-text">
+      <h3>{{ form.Dedicatorias.label }}</h3> <br>{{ form.Dedicatorias }}
+    </div>
+
+    <div class="form-text">
+      <h3>{{ form.Observacoes.label }}</h3> <br>{{ form.Observacoes }}
+    </div>
+  </div>
+
+  {% if update == True %}
+  <div class="update-buttons button-submit">
+    <p>
+      <button type="submit" class="button-update button-style">Salvar</button>
+    </p>
+  </div>
+  {% else %}
+  <div class="">
+    {{ form.Submit(class_="button-submit button-style") }}
+  </div>
+  {% endif %}
+
+</form>
+
+<script type="text/javascript">
+  // Permite injectar valores da DB no formulário
+  // a partir de um dicionário convertido em JSON.
+  var data = {{ data|safe }};
+  for (let key of Object.keys(data)) {
+    if (data[key] != null) {
+      document.getElementById(key).value=data[key];
+    }
+  }
+</script>
+
+{% endblock %}

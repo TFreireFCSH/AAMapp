@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/form-setup.css">
+
+<form class="" action="{{ url_for('forms') }}" method="POST">
+  {{ form.csrf_token }}
+
+  <div class="form-section">
+    <h2>{{form.tipoDeDocumento.label}}</h2>
+
+    <p>
+      {{ form.tipoDeDocumento(class_="form-field xbig") }} {{ form.subDocs(class_="form-field small") }}
+    </p>
+    <p>
+      {{ form.submit(class_="button-select button-style") }}
+    </p>
+  </div>
+
+</form>
+
+{% endblock %}

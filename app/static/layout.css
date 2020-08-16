@@ -1,0 +1,183 @@
+/* Variáveis globais */
+:root {
+  --main-header-color: #474747;
+  --main-background-color: white;
+  --main-hover-color: #a3a3a3;
+}
+
+/* Configurações para os tags html e body */
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: Arial;
+}
+
+body {
+  margin: 0;
+}
+
+
+/* Configuração da grelha css que vai conter os elementos presentes na página */
+.grid-container {
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: 100px auto 200px;
+  grid-template-rows: 80px 51px auto 50px;
+}
+
+
+/* Configuração dos elementos presentes no cabeçalho */
+/* Logo da página */
+.header-logo {
+  text-align: center;
+  grid-column: 1;
+  grid-row: 1;
+  background-color: var(--main-background-color);
+}
+
+.header-logo img {
+  height: 100%;
+  margin: auto;
+  background-color: var(--main-background-color);
+}
+
+
+/* Título da página */
+.header-title {
+  grid-column: 2 / 4;
+  grid-row: 1;
+  background-color: var(--main-background-color);
+}
+
+.header-title h1 {
+  margin-top: 20px;
+  margin-bottom: 0px;
+  margin-left: 30px;
+  letter-spacing: 0.05em;
+}
+
+
+/* Ajuste dinâmico do título em função da dimensão da janela do browser */
+@media screen and (min-width: 921px) {
+  .header-title h1 {
+    font-size: 1.8vw;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .header-title h1 {
+    font-size: 2.7vw;
+  }
+}
+
+
+/* Configuração da barra de navegação */
+.navbar {
+  grid-column: 1 / 4;
+  grid-row: 2;
+  background-color: var(--main-header-color);
+  overflow: hidden;
+}
+
+.navbar a {
+  height: auto;
+  float: left;
+  padding: 17px 20px;
+  font-size: 0.9em;
+  text-align: center;
+  color: White;
+  text-decoration: none;
+  letter-spacing: 0.09em;
+}
+
+.navbar a:hover {
+  background-color:  var(--main-hover-color);
+}
+
+.drop-down {
+  float: left;
+  overflow: hidden;
+}
+
+.drop-down .drop-down-btn {
+  margin: 0;
+  padding: 17px 20px;
+  border: none;
+  outline: none;
+  background-color: inherit;
+  font-size: 0.9em;
+  font-family: inherit;
+  color: white;
+  letter-spacing: 0.09em;
+}
+
+.drop-down-btn:hover {
+  background-color:  var(--main-hover-color);
+}
+
+.drop-down-content {
+  display: none;
+  position: absolute;
+  background-color: var(--main-header-color);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+.drop-down-content a {
+  float: none;
+  display: block;
+  padding: 12px 16px;
+  font-size: 0.8em;
+  text-align: left;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 0.09em;
+}
+
+.drop-down-content a:hover {
+  background-color: var(--main-hover-color);
+}
+
+.drop-down:hover .drop-down-content {
+  display: block;
+}
+
+
+/* Registo de documentos */
+.navbar a.register-doc {
+  height: 51px;
+  float: right;
+  width: 50px;
+  padding: 0px;
+  padding-right: 7px;
+}
+
+.navbar .register-doc img {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 5px 7px;
+  color: white;
+}
+
+
+/* Secção principal dinâmica destinada a conteúdos */
+.content {
+  position: relative;
+  grid-column: 1 / 4;
+  grid-row: 3;
+  background-color: var(--main-background-color);
+}
+
+
+/* Configuração do redapé */
+.footer {
+  grid-column: 1 / 4;
+  grid-row: 4;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  background-color: var(--main-background-color);
+}

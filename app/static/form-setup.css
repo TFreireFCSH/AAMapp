@@ -1,0 +1,115 @@
+/* Configuração dos campos de preenchimento */
+.form-field {
+  box-sizing: border-box;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.form-txtarea {
+  width: 80%;
+  height: 170px;
+}
+
+.xbig {
+  width: 350px;
+}
+
+.big {
+  width: 252px;
+}
+
+.medium {
+  width:175px;
+}
+
+.small {
+  width: 126px;
+}
+
+
+/* Configuração do formulário de selecção */
+.form-section {
+  position: relative;
+  background-color: inherit;
+  height: 65vh;
+  min-height: 65vh;
+}
+
+.form-section p,h2 {
+  text-align: center;
+}
+
+.form-section h2 {
+  padding-top: 150px;
+}
+
+
+/* Configuração geral das secções do formulário */
+div.form-sec-one, div.form-sec-two, div.form-sec-three, div.form-sec-four {
+  float: left;
+  padding-left: 55px;
+  padding-top: 35px;
+  padding-bottom: 15px;
+}
+
+div.form-sec-txtarea {
+  box-sizing: border-box;
+  float: left;
+  width: 100%;
+  height: auto;
+  padding-left: 55px;
+}
+
+div.form-text {
+  float: left;
+  position: relative;
+  width: 25%;
+  height: 235px;
+}
+
+.form-text textarea{
+  width: 80%;
+  height: 170px;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
+
+/* Configurações particulares do formulário das Chancelas */
+.obs-textarea textarea {
+  width: 500px;
+  height: 150px;
+}
+
+
+/* Configuração do botão de submissão de valores */
+/* Posicionamento dos botões */
+.button-select {
+  margin-top: 50px;
+}
+
+.button-submit {
+  position: absolute;
+  right: 70px;
+  top: 25px;
+}
+
+div.buttons p {
+  width: 100%;
+  height: auto;
+  text-align: right;
+}
+
+.buttons button {
+  display: inline;
+}
+
+
+/* Estilo dos botões */
+.button-style {
+  width: 110px;
+  height: 35px;
+  border-radius: 6px;
+  background-color: var(--main-header-color);
+  color: white;
+}

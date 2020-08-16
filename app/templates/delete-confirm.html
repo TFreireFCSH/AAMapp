@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/delete.css">
+<link rel="stylesheet" href="/static/form-setup.css">
+
+
+<div class="delete-wrapper">
+
+  <h3>Pretende eliminar definitivamente o seguinte registo:</h3>
+    <table class="delete-table">
+      {% for col, dt in columns|zip(data) %}
+      <tr>
+        <td>{{ col }}</td>
+        <td>{{ dt }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <div class="delete-button-container">
+      <form class="" method="POST">
+        <button class="delete-button button-style" type="submit" name="button-delete" value="Flase">cancelar</button>
+        <button class="delete-button button-style" type="submit" name="button-delete" value="True">confirmar</button>
+      </form>
+    </div>
+</div>
+
+{% endblock %}

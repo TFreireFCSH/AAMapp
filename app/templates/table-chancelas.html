@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename="table.js") }}"></script>
+<link rel="stylesheet" href="/static/table-wraper.css">
+<link rel="stylesheet" href="/static/table.css">
+<link rel="stylesheet" href="/static/image-resize.css">
+
+
+<div class="table-grid">
+
+<!-- Cabeçalho da secção de tabelas ----------------------------------->
+  <div class="table-header">
+    <h3 id="page-title">{{ title }}</h3>
+  </div>
+
+<!-- Barra lateral de navegação --------------------------------------->
+  <div class="side-bar">
+
+    <div class="side-bar-wrapper">
+      <h4>{{ data[5] }}</h4>
+
+      <div class="display-image">
+        <a href="javascript:vacum[0]" onclick="imageZoomOpen()">
+          <img src="{{ data[-1] }}" alt="{{ data[02] }}">
+        </a>
+      </div>
+
+      <div class="display-info">
+        <table>
+          {% for col, dt in columns[1:-1]|zip(data[1:-1]) %}
+          <tr>
+            <td>{{ col }}</td>
+            <td>{{ dt }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Painel principal de visualização de tabelas ---------------------->
+  <div class="table-data">
+
+    <table id="table-chancelas">
+    </table>
+  </div>
+
+</div>
+
+<!-- Menu com opções de edição, alteração de registo e eliminação ------>
+<div class="modal-wrapper-chancelas" id="modal-wrapper-chancelas-id">
+</div>
+
+<div class="image-zoom-chancelas" id="image-zoom-chancelas-id">
+    <a href="javascript:vacum[0]" onclick="imageZoomClose()">
+      <img id="image-zoom-chancelas-id" src="{{ data[-1] }}" alt="">
+    </a>
+</div>
+
+<script type="text/javascript">
+  var refference = {{ data_ref|safe }}
+</script>
+
+{% endblock %}

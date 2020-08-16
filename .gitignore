@@ -1,0 +1,21 @@
+$ cat .gitignore
+
+# The following files or folders are not to be loaded onto GitHub:
+# App configuration file #########################################
+config.py
+
+
+# __pycache__ ####################################################
+__pycache__/*
+
+
+# AAMenv #########################################################
+AAMenv/*
+
+
+# app/__pycache__ ################################################
+app/__pycache__/*
+
+
+# app/static/img #################################################
+app/static/img/*

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt" dir="ltr">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport:" content="width=device-width, initial-sclale=1.0">
+
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/static/layout.css">
+  </head>
+
+  <body>
+    <div class="grid-container">
+
+
+      <div class="header-logo">
+        <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='img/app/aamlogo_3.png') }}"></a>
+      </div>
+      <div class="header-title">
+        <h1>Academia de Amadores de Música</h1>
+      </div>
+
+
+<!-- Barra de Navegação  ------------------------->
+      <div class="navbar">
+        <!-- Secção referente às Abreviaturas  -->
+        <a href="{{ url_for('intro') }}">Abreviaturas</a>
+
+        <!-- Secção referente ao Arquivo  -->
+        <div class="drop-down">
+          <button class="drop-down-btn">Arquivo</button>
+
+          <div class="drop-down-content">
+            <a href="{{ url_for('arquivo', doc='orgaos') }}">Órgãos</a>
+            <a href="{{ url_for('arquivo', doc='catgeraldocumentos') }}">Catálogo Geral de Documentos</a>
+          </div>
+        </div>
+
+        <!-- Secção referente à Biblioteca  -->
+        <div class="drop-down">
+          <button class="drop-down-btn">Biblioteca</button>
+
+          <div class="drop-down-content">
+            <a href="{{ url_for('biblioteca', doc='fundos') }}">Fundos</a>
+            <a href="{{ url_for('biblioteca', doc='partituras') }}">Partituras</a>
+            <a href="{{ url_for('biblioteca', doc='livros') }}">Livros</a>
+            <a href="{{ url_for('biblioteca', doc='periodicos') }}">Periódicos</a>
+            <a href="{{ url_for('biblioteca', doc='progconcerto') }}">Programas de Concerto</a>
+            <a href="{{ url_for('biblioteca', doc='gravuras') }}">Gravuras</a>
+            <a href="{{ url_for('biblioteca', doc='fotografias') }}">Fotografias</a>
+            <a href="{{ url_for('biblioteca', doc='catdocumentos') }}">Catálogo Geral de Documentos</a>
+          </div>
+        </div>
+
+        <!-- Secção referente às Chancelas  -->
+        <a href="{{ url_for('chancelas', doc='chancelasgeral') }}">Chancelas</a>
+
+        <!-- Secção referente à Gazeta Musical  -->
+        <div class="drop-down">
+          <button class="drop-down-btn">Gazeta Musical</button>
+
+          <div class="drop-down-content">
+            <a href="{{ url_for('gazeta_musical', doc='revistas') }}">Revistas</a>
+            <a href="{{ url_for('gazeta_musical', doc='grevuras') }}">Gravuras</a>
+            <a href="{{ url_for('gazeta_musical', doc='catdocumentos') }}">Catálogo Geral de Documentos</a>
+          </div>
+        </div>
+
+        <a class="register-doc" href="{{ url_for('forms') }}"><img src="{{ url_for('static', filename='/img/app/registo.png') }}" alt="reg"></a>
+      </div>
+
+
+<!-- Conteudo da página  ------------------------->
+      <div class="content">
+        {% block content %} {% endblock %}
+      </div>
+
+
+<!-- Rodapé -------------------------------------->
+      <div class="footer">
+        <p>&copy; 2020 TFreire</p>
+      </div>
+
+    </div>
+  </body>
+</html>

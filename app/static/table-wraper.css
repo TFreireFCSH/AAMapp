@@ -1,0 +1,70 @@
+/* Propriedades da grelha CSS */
+.table-grid {
+display: grid;
+grid-template-columns: 79% 20%;
+grid-template-rows: 60px 1fr;
+}
+
+/* Propriedades do cabeçalho da secção de tabelas */
+.table-header {
+  grid-column: 1;
+  grid-row: 1;
+  background-color: var(--main-background-color);
+}
+
+.table-header h3 {
+  padding-left: 25px;
+}
+
+/* Propriedades da tabela em versão simples */
+div.table-data {
+  height: 63vh;
+  margin-left: 5px;
+  grid-column: 1;
+  grid-row: 2;
+  background-color: var(--main-background-color);
+  overflow-y: scroll;
+  scroll-behavior: auto;
+  box-shadow: 0px 0px 3px 1px grey;
+}
+
+/* Propriedades da barra lateral */
+.side-bar {
+  grid-column: 2;
+  grid-row: 1 / 4;
+  height: auto;
+  background-color: var(--main-background-color);
+}
+
+.side-bar-wrapper {
+  width: 95%;
+  margin: 0 20px;
+  margin-top: 60px;
+}
+
+.side-bar .display-image {
+  width: 25%;
+  margin:0 auto;
+  margin-bottom: 30px;
+}
+
+.side-bar .display-image img {
+  box-sizing: border-box;
+  width: 100%;
+  border: 5px solid transparent;
+  box-shadow: 0px 0px 3px 1px black;
+}
+
+.side-bar .display-info table {
+  border-collapse: collapse;
+}
+
+.side-bar .display-info td:first-child {
+  border-right: 1px dotted black;
+  font-weight: bold;
+}
+
+.side-bar .display-info td {
+  padding: 7px 10px;
+  font-size: 0.8em;
+}

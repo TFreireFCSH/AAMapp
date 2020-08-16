@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+<link rel="stylesheet" href="/static/forms.css">
+
+
+<form id="doc-form" action="index.html" method="post">
+
+  <!-- Primeira secção - Escolha do tipo de partitura -------------------------------->
+  <div class="form-section section-one">
+
+    <p>
+      <label for="doc-tipo"><h2>Registo :</h2></label>
+    </p>
+    <p>
+      <select id="select-doc-type" class="doc-select" name="">
+        <optgroup label="Partituras">
+          <option value="001">Impressa</option>
+          <option value="002">Manuscrita</option>
+          <option value="003">Documento misto</option>
+          <option value="004">Volume encadernado com obra integral impressa</option>
+          <option value="005">Volume encadernado com colecção de obras impressas</option>
+          <option value="006">Volume encadernado com com obra integral manuscrita</option>
+          <option value="007">Volume encadernado com colecção de obras manuscritas</option>
+          <option value="008">Volume encadernado misto</option>
+          <option value="009">Outro</option>
+        </optgroup>
+      </select>
+    </p>
+
+  </div>
+
+
+  <!-- Segunda secção - Escolha do fundo/órgão --------------------------------------->
+
+  <div class="form-section">
+    <p>
+      <label for="fnd-org-select"><h2>Fundo / Orgão : </h2></label>
+    </p>
+    <p>
+      <select class="doc-select" name="fnd-org-select">
+        <option value="">...</option>
+        <optgroup label="Fundos">
+          <option value="FCB">FCB : Francine Benoit</option>
+          <option value="OGV">OGV : Olga Violante</option>
+          <option value="PDB">PDB : Pedro Blanch</option>
+          <option value="GZM">GZM : Gazeta Musical</option>
+          <option value="AAM">AAM : Academia de Amadores de Música</option>
+        </optgroup>
+        <optgroup label="Órgãos">
+          <option value="AGS">AGS : Assembleia Geral de Sócios</option>
+          <option value="DRA">DRA : Direcção Administrativa</option>
+          <option value="DRP">DRP : Direcção Pedagógica</option>
+          <option value="DRM">DRM : Direcção Musical</option>
+          <option value="CSP">CSP : Conselho de Professores</option>
+        </optgroup>
+      </select>
+    </p>
+
+    <p>Registar <a href="#">fundo</a> ou <a href="#">órgão</a>.</p>
+  </div>
+
+
+  <!-- Terceira secção - Selecção das chancelas não numeradas ------------------------>
+  <div class="form-section">
+    <table>
+      <tr>
+        <td><img src="" alt=""> </td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+
+  <!-- Quarta secção - Selecção das chancelas numeradas ------------------------------>
+  <div class="form-section">
+    secção 4
+  </div>
+
+
+  <!-- Quinta secção - Preenchimento dos campos relativos ao documento --------------->
+
+  <div class="form-section">
+    <div id="form-partituras">
+      form partituras
+    </div>
+
+    <div id="form-livros">
+      form livros
+    </div>
+  </div>
+
+
+
+  <div class="button-container-one">
+    <div class="button-container-two">
+      <button type="button" id="prev-button" onclick="nextPrev(-1)">Voltar</button>
+      <button type="button" id="next-button" onclick="nextPrev(1)">Próximo</button>
+    </div>
+  </div>
+</form>
+
+
+
+
+<script type="text/javascript" src="{{ url_for('static', filename="form.js") }}"></script>
+{% endblock %}

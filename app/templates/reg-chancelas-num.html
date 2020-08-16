@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/reg-chancelas.css">
+<link rel="stylesheet" href="/static/form-setup.css">
+
+<div class="chancelas-reg-wrapper">
+  <form class="chancelas-reg" action="index.html" method="POST">
+
+      <table>
+        {% for row in data|batch(6) %}
+        <tr>
+          {% for column in row %}
+
+
+          <div class="chancelas-row-cell">
+            <td>
+
+              <div class="container">
+                <label class="option-item">
+                  <div class="option-inner">
+                    <div class="option-image option-image-text">
+                      <input class="chan-num-text checkbox-{{ column[1] }}" type="text" id="{{ column[1] }}" value="" placeholder="...">
+                      <img src="{{ column[2] }}" alt="{{ column[1] }}">
+                      <div class="check-mark"></div>
+                    </div>
+                  </div>
+                </label>
+              </div>
+
+            </td>
+          </div>
+
+
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </table>
+
+      <button type="submit" class="button-style button-submit">Submeter</button>
+    </form>
+</div>
+
+
+{% endblock %}

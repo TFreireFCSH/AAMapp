@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/form-setup.css">
+
+<form class="form-fundos" method="POST">
+  {{ form.csrf_token }}
+
+  <div class="form-sec-one">
+    <h3>{{ form.IdOrgaos.label }}</h3> {{ form.IdOrgaos(class_="form-field big") }}
+    <h3>{{ form.IdFundos.label }}</h3> {{ form.IdFundos(class_="form-field big") }}
+    <h3>{{ form.DescricaoNormalizada.label }}</h3>{{ form.DescricaoNormalizada(class_="form-field big") }}
+  </div>
+
+  <div class="form-sec-two">
+    <h3>{{ form.Data1.label }}</h3> {{ form.Data1(class_="form-field big") }}
+    <h3>{{ form.Data2.label }}</h3> {{ form.Data2(class_="form-field big") }}
+    <h3>{{ form.Periodo.label }}</h3> {{ form.Periodo(class_="form-field big") }}
+  </div>
+
+  <div class="form-sec-three">
+    <h3>{{ form.NumCota.label }}</h3>{{ form.NumCota(class_="form-field big") }}
+    <h3>{{ form.Tipologia.label }}</h3>{{ form.Tipologia(class_="form-field big") }}
+    <h3>{{ form.Categoria.label }}</h3>{{ form.Categoria(class_="form-field big") }}
+  </div>
+
+  <div class="form-sec-txtarea">
+    <div class="obs-textarea">
+      <h3>{{ form.Observacoes.label }}</h3>
+      {{ form.Observacoes }}
+    </div>
+  </div>
+
+  {% if update == True %}
+  <div class="update-buttons button-submit">
+    <p>
+      <button type="submit" class="button-update button-style">Salvar</button>
+    </p>
+  </div>
+  {% else %}
+  <div class="">
+    {{ form.Submit(class_="button-submit button-style") }}
+  </div>
+  {% endif %}
+
+</form>
+
+<script type="text/javascript">
+  // Permite injectar valores da DB no formulário
+  // a partir de um dicionário convertido em JSON.
+  var data = {{ data|safe }};
+  for (let key of Object.keys(data)) {
+    if (data[key] != null) {
+      document.getElementById(key).value=data[key];
+    }
+  }
+</script>
+
+{% endblock %}

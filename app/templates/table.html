@@ -1,0 +1,182 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename="table.js") }}"></script>
+<link rel="stylesheet" href="/static/table-wraper.css">
+<link rel="stylesheet" href="/static/table.css">
+<link rel="stylesheet" href="/static/modal-menu.css">
+
+
+<div class="table-grid">
+
+<!-- Cabeçalho da secção de tabelas ----------------------------------->
+  <div class="table-header">
+    <h3 id="page-title">{{ title }}</h3>
+  </div>
+
+<!-- Barra lateral de navegação --------------------------------------->
+  <div class="side-bar">
+    <h5>Barra lateral</h5>
+  </div>
+
+{% if title == 'AAM Fundos' %}
+
+  <!-- Painel principal de visualização de tabelas ---------------------->
+  <div class="table-data">
+
+    <table  id="table-fundos">
+        <tr>
+          {% for column in columns %}
+          <th>{{ column }}</th>
+          {% endfor %}
+        </tr>
+
+
+        {% for dt in data %}
+        <tr>
+          <td class="table-data-first"><a href="{{ url_for('fundo', fnd=dt[0]) }}">{{ dt[0] }}</a></td>
+
+          {% for item in dt[1:] %}
+          <td>{{ item }}</td>
+          {% endfor %}
+
+          <td class="table-data-last"><a id="{{ loop.index0 }}" href="javascript:vacum[0]" onclick="openModalMenu(refference, 'fundos')">Editar</a></td>
+
+        </tr>
+        {% endfor %}
+
+    </table>
+  </div>
+
+{% elif title == 'AAM Órgãos' %}
+  <!-- Painel principal de visualização de tabelas ---------------------->
+  <div class="table-data">
+
+    <table id="table-orgaos">
+      <tr>
+        {% for column in columns %}
+        <th>{{ column }}</th>
+        {% endfor %}
+      </tr>
+      {% for dt in data %}
+      <tr>
+        <td class="table-data-first"><a href="{{ url_for('orgao', org=dt[0]) }}">{{ dt[0] }}</a></td>
+        {% for item in dt[1:] %}
+        <td>{{ item }}</td>
+        {% endfor %}
+        <td class="table-data-last"><a id="{{ loop.index0 }}" href="javascript:vacum[0]" onclick="openModalMenu(refference, 'orgaos')">Editar</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+
+  </div>
+
+{% elif title == 'AAM Chancelas' %}
+  <!-- Painel principal de visualização de tabelas ---------------------->
+  <div class="table-data">
+
+    <table id="table-chancelas">
+      <tr>
+        {% for column in columns[1:] %}
+        <th>{{ column }}</th>
+        {% endfor %}
+      </tr>
+      {% for dt in data %}
+      <tr>
+        <td class="image-cell"><a href="{{ url_for('chancelas_reg', ref=dt[1]) }}"><img src="{{ dt[0] }}" alt="{{ dt[1] }}" style="text-align:center"></a></td>
+        {% for item in dt[2:] %}
+        <td>{{ item }}</td>
+        {% endfor %}
+        <td class="table-data-last"><a id="{{ loop.index0 }}" href="javascript:vacum[0]" onclick="openModalMenu(refference, 'chancelas')">Editar</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+
+  </div>
+
+{% elif title == 'Periódicos' %}
+
+  <!-- Painel principal de visualização de tabelas ---------------------->
+  <div class="table-data">
+
+        <table  id="table-periodicos">
+            <tr>
+              {% for column in columns[1:] %}
+              <th>{{ column }}</th>
+              {% endfor %}
+            </tr>
+            {% for dt in data %}
+            <tr>
+              <td class="table-data-first"><a href="{{ url_for('biblioteca_doc', doc='periodicos', ref=dt[1]) }}">{{ dt[0] }}</a></td>
+              {% for item in dt[2:] %}
+              <td>{{ item }}</td>
+              {% endfor %}
+              <td class="table-data-last"><a id="{{ loop.index0 }}" href="javascript:vacum[0]" onclick="openModalMenu(refference, 'periodicos')">Editar</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+  </div>
+
+{% elif title == 'Partituras' %}
+
+  <!-- Painel principal de visualização de tabelas ---------------------->
+  <div class="table-data">
+
+        <table  id="table-partituras">
+            <tr>
+              {% for column in columns[1:] %}
+              <th>{{ column }}</th>
+              {% endfor %}
+            </tr>
+            {% for dt in data %}
+            <tr>
+              <td class="table-data-first"><a href="{{ url_for('biblioteca_doc', doc='partituras', ref=dt[1]) }}">{{ dt[0] }}</a></td>
+              {% for item in dt[2:] %}
+              <td>{{ item }}</td>
+              {% endfor %}
+              <td class="table-data-last"><a id="{{ loop.index0 }}" href="javascript:vacum[0]" onclick="openModalMenu(refference, 'partituras')">Editar</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+  </div>
+{% endif %}
+
+</div>
+
+<!-- Menu com opções de edição, alteração de registo e eliminação ------>
+<div class="modal-wrapper" id="modal-wrapper-id">
+</div>
+
+<div class="modal-content" id="modal-content-id">
+  <div class="modal-header">
+    <h5 id="modal-header-text">Nome</h5>
+    <button type="button" class="close-button" onclick="closeModalMenu()">&times;</button>
+  </div>
+
+
+  {% if title == "AAM Fundos" or title == "AAM Órgãos" or title == "AAM Chancelas" %}
+  <div class="modal-body">
+    <a id="modal-body-link-update" href="">Editar</a>
+    <a id="modal-body-link-delete" href="">Eliminar</a>
+  </div>
+  {% else %}
+  <div class="modal-body">
+    <a id="modal-body-link-update" href="">Editar</a>
+    <a id="modal-body-link-chancelas" href="">Chancelas</a>
+    <a id="modal-body-link-numcotas" href="">Numerações / Cotas</a>
+    <a id="modal-body-link-delete" href="">Eliminar</a>
+  </div>
+  {% endif %}
+</div>
+
+
+<script type="text/javascript">
+  var refference = {{ data_ref|safe }}
+</script>
+
+{% endblock %}

@@ -1,0 +1,106 @@
+.chancelas-reg-wrapper {
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #efefef;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px 1px grey;
+}
+
+.chancelas-reg-wrapper table {
+  width: 95%;
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  display: block;
+}
+
+label.option-item-checkbox {
+  cursor: pointer;
+}
+
+div.option-inner {
+  width: 110px;
+  margin: auto;
+}
+
+.option-image {
+  position: relative;
+  width: auto;
+}
+
+.check-mark {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border: 12px solid;
+  border-color: var(--main-header-color) transparent transparent var(--main-header-color);
+  display: none;
+}
+
+.check-mark::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  left: -10px;
+  width: 9px;
+  height: 4px;
+  border: 2px solid;
+  border-color: transparent transparent #fff #fff;
+  transform: rotate(-45deg);
+}
+
+.option-image .checkbox-chancelas {
+  position: absolute;
+  margin: 0px;
+  top: 0px;
+  right: 0px;
+  opacity: 0;
+}
+
+.option-image-text {
+  position: relative;
+  padding-bottom: 26px;
+}
+
+.chan-num-text {
+  position: absolute;
+  bottom: 0px;
+  margin: auto;
+  width: 95%;
+  padding: 0px;
+  margin-top: 3px;
+  border: 3px solid transparent;
+  box-shadow: 0px 1px 2px 1px grey;
+}
+
+.option-image img {
+  width: 95%;
+  margin: auto;
+  display: block;
+  border: 3px solid transparent;
+  box-shadow: 0px 0px 2px 1px grey;
+}
+
+.checkbox-chancelas:checked ~ img, .chan-num-text:not(:placeholder-shown) ~ img {
+  box-shadow: 0px 0px 3px 1px grey;
+  border-color: var(--main-header-color);
+}
+
+.checkbox-chancelas:checked  ~ .check-mark {
+  display: block;
+}
+
+.chan-num-text:not(:placeholder-shown) {
+  display: block;
+  box-shadow: 0px 0px 3px 1px grey;
+  border-color: var(--main-header-color);
+}
+
+.chan-num-text:not(:placeholder-shown) ~ .check-mark {
+  display: block;
+}

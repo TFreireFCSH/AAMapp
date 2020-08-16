@@ -1,0 +1,37 @@
+.delete-wrapper {
+  width: 70%;
+  margin: auto;
+  margin-top: 50px;
+  background-color: inherit;
+}
+
+.delete-wrapper h3 {
+  padding-bottom: 15px;
+  margin-left: 20px;
+  margin-bottom: 0;
+  border-bottom: 1px dotted black;
+}
+
+table.delete-table {
+  border-collapse: collapse;
+}
+table.delete-table td {
+  padding: 5px 20px;
+  font-size: 0.8em;
+}
+
+table.delete-table td:first-child {
+  font-weight: bold;
+  border-right: 1px dotted grey;
+}
+
+.delete-button-container {
+  width: auto;
+  margin-top: 15px;
+}
+
+.delete-button {
+  float: right;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
